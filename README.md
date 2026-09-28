@@ -21,7 +21,7 @@ meeting. Reference solutions for the challenge ladder live on a separate
 
 Please do this *before* you show up -- the very first build downloads a
 full compiler toolchain and can take 10-20 minutes depending on your
-internet connection, and we don't have time for that live.
+internet connection.
 
 1. Install [VS Code](https://code.visualstudio.com/).
 2. Install the [PlatformIO IDE extension](https://platformio.org/install/ide?install=vscode)
