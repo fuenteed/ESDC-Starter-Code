@@ -1,0 +1,44 @@
+name: Build all PlatformIO projects
+
+# Runs on both main (starter code) and solutions (reference answers), so
+# we know everyone's toolchain will actually build before the meeting.
+on:
+  push:
+    branches: [main, solutions]
+  pull_request:
+    branches: [main, solutions]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - blinky
+          - challenges/level1-heartbeat
+          - challenges/level2-morse-name
+          - challenges/level3-button-speed
+          - challenges/level4-hal-rewrite
+          - challenges/level5-bare-metal
+          - challenges/level6-portability
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache PlatformIO packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: platformio-${{ hashFiles('**/platformio.ini') }}
+
+      - name: Install PlatformIO
+        run: pip install --upgrade platformio
+
+      - name: Build every environment in ${{ matrix.project }}
+        working-directory: ${{ matrix.project }}
+        run: pio run

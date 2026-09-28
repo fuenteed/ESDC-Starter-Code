@@ -1,0 +1,4 @@
+.pio/
+.pio-venv/
+.vscode/
+*.pyc
