@@ -6,7 +6,7 @@
 #include <Arduino.h>
 
 // How long the LED stays in each state, in milliseconds.
-const unsigned long BLINK_INTERVAL_MS = 500;
+const unsigned long BLINK_INTERVAL_MS = 5000;
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
