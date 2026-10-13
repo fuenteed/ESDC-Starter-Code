@@ -8,10 +8,14 @@ There are three starter files in `src/`, one per register-layout family
 one for whichever environment you pick, so you only need to look at the
 file that matches your board.
 
-Each file has numbered `TODO` steps: enable the GPIO port's clock, put
-the LED pin into output mode, check that the LED turns on, then toggle
-it in a loop. There's a bit-manipulation cheat sheet at the top of each
-file, and a `delay()` helper is already written for you.
+Every register address and bit number you need is already `#define`d
+at the top of each file (`RCC_AHB1ENR`, `LED_MODER`, `LED_ODR`,
+`LED_PIN`, ...), so your job is just setting, clearing, and flipping the
+right bits. `main()` has numbered step comments to fill in: enable the
+GPIO port's clock, put the LED pin into output mode, check that the LED
+turns on, then toggle it in a loop. There's a bit-manipulation cheat
+sheet at the top of each file, and a `delay()` helper is already written
+for you.
 
 **Do the checkpoint step.** Uploading once you can turn the LED on, before
 you write any loop, tells you whether your setup code is right. If the
